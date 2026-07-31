@@ -17,6 +17,11 @@ html {
      align-items: center;
 }
 
+.flex_between {
+     display: flex;
+     justify-content: space-between;
+}
+
 .flex_column {
      display: flex;
      flex-direction: column;
@@ -206,7 +211,6 @@ main h1 {
 
 .types_cars .galery_item:nth-child(6) button {
      background-color: #1961d4;
-     width: ;
      padding: 1.5rem;
      height: 2rem;
      width: 10rem;
