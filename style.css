@@ -1,357 +1,379 @@
 * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Le plus important pour les largeurs */
 }
 
-   
-
-html {
-     font-size: 62.5%;
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden; /* Empêche le scroll latéral accidentel */
+    font-size: 62.5%;
 }
 
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
 
 .flex_center {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-}
-
-.flex_between {
-     display: flex;
-     justify-content: space-between;
+    display: flex;
+    justify-content: center;
 }
 
 .flex_column {
-     display: flex;
-     flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-     width: 100vw;
-     height: 80rem;
-     background-color: #194DA3;
-     position: relative;
-     background: radial-gradient(ellipse 54% 45% at 50% 15%, #0A2663 0%, #021847 40%, #030916 100%);
-     gap: 5rem;
-     align-items: center;
-     justify-content: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: radial-gradient(ellipse 54% 45% at 50% 15%, #0a2663 0%, #021847 40%, #030916 100%);
+    width: 100vw;
+    height: 80vh;
 }
 
-header nav {
-     top: .5rem;
-     gap: 30rem;
-     padding: 2rem;
+.header_part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    gap: 8rem;
+    position: fixed;
+    top: 0;
+    background: radial-gradient(ellipse 54% 100% at 50% 100%, #0a2663 0%, #021847 40%, #030916 100%);
+    width: 100vw;
+    z-index: 100;
 }
 
 .logo {
-     color: white;
-     font-size: 2.5rem;
-     font-family: Arial, Helvetica, sans-serif;
-     font-weight: 700;
-}
-
-nav div {
-     gap: 35rem;
-}
-
-.nav_links   {
-     gap: 2rem;
-}
-
-.nav_links li  {
-     list-style: none;
-}
-
-.nav_links li  a {
-     text-decoration: none;
-     color: white;
-     font-size: 1.5rem;
-}
-
-nav button {
-     padding: 1.5rem;
-     background-color: white;
-     color: #000000;
-     height: 2rem;
-     width: 10rem;
-     border-radius: 2rem;
-     border: none;
+    color: white;
+    font-size: 2rem;
 }
 
 #menu_burger {
-     display: none;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     gap: .3rem;
-     width: 5rem;
-     height: 5rem;
-     background-color: white;
-     border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: white;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding: 0.4rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 #menu_burger span {
-     width: 3rem;
-     height: .5rem;
-     background-color: black;
-     border-radius: .2rem;
+    width: 2.5rem;
+    background-color: black;
+    height: 0.3rem;
+    border-radius: 0.5rem;
+    transition: all 0.5s ease-in-out;
+}
 
+#menu_burger.active span:nth-child(1) {
+    transform: translateY(0.8rem) rotate(45deg);
+}
+
+#menu_burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu_burger.active span:nth-child(3) {
+    transform: translateY(-0.8rem) rotate(-45deg);
+}
+
+.no_inspi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100vw);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 2s ease;
+}
+
+.no_inspi.open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.nav_links a {
+    text-decoration: none;
+    color: #95b3f4;
+    font-size: 2rem;
+    transition: all 0.5s ease;
+}
+
+.nav_links a:hover {
+    transform: translateY(-1rem);
+}
+
+.no_inspi button {
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.no_inspi button:hover {
+    background-color: #0a2663;
 }
 
 .hero {
-     gap: 2rem;
-     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
-h1 {
-     font-size: 5rem;
-     font-family: Arial, Helvetica, sans-serif;
-     font-weight: 500;
-     color: white;
+.hero h1 {
+    color: white;
+    font-size: 2.5rem;
 }
 
 .hero p {
-     color: #dfdfdf;
-     font-size: 2rem;
+    color: #efefef;
+    font-size: 1rem;
 }
 
 .hero button {
-     background-color: #024cc2;
-     padding: 1.5rem;
-     width: 12rem;
-     height: 2rem;
-     border-radius: 2rem;
-     color: white;
-     border: none;
+    background-color: #0649dc;
+    color: white;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 1.5rem;
 }
 
-.hero img {
-     position: relative;
-     top: 10rem;
-     z-index: 1000;
-     width: 65vw;
-     height: 50vh;
-     object-fit: cover;
-     object-position: center;
+.car-wrapper {
+    position: relative; /* Indispensable pour l'effet */
+    width: 80vw; /* Largeur de votre conteneur */
+    margin: 0 auto; /* Pour centrer le conteneur */
+    display: flex;
+    justify-content: center;
 }
 
-.hero img::after {
-     content: "";
-     position: absolute;
-     width: 100%;
-     height: 10rem;
-     background-color: #fff;
-     color: #fff;
-     border-radius: 2rem;
-     bottom: 2rem;
-     left: 50%;
-     backdrop-filter: blur(1rem);
-     z-index: -1;
+.car-wrapper img {
+    width: 100%;
+    height: auto;
+    z-index: 2; /* L'image passe au-dessus de l'effet */
+    position: relative;
 }
 
+.car-wrapper::before {
+    content: "";
+    width: 90vw; /* Longueur de l'ellipse */
+    height: 2.5rem; /* Hauteur très fine de l'ellipse */
+    position: absolute;
+    bottom: -1.5rem; /* Positionnée juste sous l'image */
+    left: 50%;
+    transform: translateX(-50%); /* Pour la centrer parfaitement */
+    background: radial-gradient(ellipse 80vw 2.5rem at 50% 50%, #efefef 0%, #cdcdcd 50%, #030916 100%);
+    border-radius: 50%; /* Donne la forme de pilule arrondie */
+    z-index: 1; /* Derrière l'image */
+    pointer-events: none;
+}
 
 main {
-     background-color: #030916;
-     gap: 5rem;
-}
-
-.middle {
-     display: grid;
-     grid-template-columns: repeat(2 , 40vw);
-     gap: 5rem;
-     justify-content: start;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    background: radial-gradient(ellipse 83% 15% at 90% 12%, #0a2663 0%, #031f5c 40%, #030916 100%);
+    gap: 10rem;
+    padding: 3rem;
 }
 
 main h1 {
-     font-size: 3.8rem;
+    font-size: 3rem;
+}
+
+main p {
+    font-size: 1.5rem;
+}
+
+main img {
+    width: 75%;
+    height: 75%;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
 }
 
 .middle p {
-     font-size: 1.8rem;
-     color: white;
-}
-
-.middle div {
-     gap: 2.5rem;
+    font-size: 1.5rem;
 }
 
 .middle button {
-     background-color: #024cc2;
-     width: 20rem;
-     padding: 1.5rem;
-     height: 2rem;
-     border: none;
-     border-radius: 2rem;
-     color: white;
+    width: 50vw;
+    background-color: #0649dc;
+    border-radius: 2rem;
+    padding: 1rem;
+    color: white;
+    border: none;
 }
 
-.types_cares {
-     gap: 1rem;
+.middle_text {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
 }
 
-.types_cars .galery {
-     display: grid;
-     grid-template-columns: repeat(2 , 40vw);
-     grid-template-rows: repeat(3 , 40vh);
-     gap: 2rem 2rem;
+.types_cars {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.types_cars .galery_item {
-     border: .2rem solid #024cc2;
-     border-radius: 2rem;
-     padding: 2rem;
-     background-color: #0c0c16;
+.galery {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    display: grid;
+    grid-auto-columns: minmax(repeat(2 1fr) 1fr);
+    grid-auto-rows: auto;
+    width: 80vw;
 }
 
-.types_cars .galery_item:nth-child(6) {
-     background-color: #024cc2;
-     gap: 15rem;
+.galery_item {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #0649dc;
+    border-radius: 1rem;
+    width: 40vh;
+    height: 30vh;
+    position: relative;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    overflow: hidden;
 }
 
-.types_cars .galery_item:nth-child(6) button {
-     background-color: #1961d4;
-     padding: 1.5rem;
-     height: 2rem;
-     width: 10rem;
-     border-radius: 2rem;
-     border: none;
-     color: white;
+.galery_item h2 {
+    font-size: 1.5rem;
 }
 
-.types_cars .galery_item h2 {
-     color: white;
-     font-size: 2rem;
+.galery_item a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
 }
 
-.types_cars .galery_item a {
-     color: white;
-     font-size: 1.5rem;
-     text-decoration: none;
-     position: relative;
-     bottom: 5rem;
+.galery_item img {
+    position: absolute;
+    left: 6rem;
+    top: 3rem;
+    object-fit: cover;
+    object-position: center;
 }
 
-.types_cars .galery_item img {
-     width: 27rem;
-     height: 20rem;
-     object-fit: cover;
-     object-position: center;
-     position: relative;
-     left: 17rem;
-     top: -3rem;
+.galery_item:nth-child(6) {
+    background-color: #0649dc;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    align-items: flex-start;
+    padding: 1rem;
 }
 
+.galery_item:nth-child(6) button {
+    padding: 0.7rem 1.7rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: #2666f3;
+    color: white;
+}
 
 .before_middle {
-     gap: 2rem;
-
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .before_middle_items {
-     display: grid;
-     grid-template-columns: repeat(3 , 30vw);
-     grid-template-rows: repeat(3 , 1fr);
-     gap: 2rem 2rem;
-}
-
-.before_middle h1 , .before_middle_items p , .before_middle_item h2 , .before_middle_item p {
-     color: white;
-}
-
-.before_middle h1  {
-     font-size: 5jrem;
-}
-
-.before_middle_items p {
-     font-size: 1.8rem;
-}
-
-.before_middle_item h2 {
-     font-size: 2.0rem;
+    flex-direction: column;
+    gap: 2rem;
+    display: grid;
+    grid-auto-columns: minmax(repeat(3 1fr) 1fr);
 }
 
 .before_middle_item {
-     border: 2px solid #024cc2;
-     padding: 2.5rem;
-     border-radius: 2rem;
-     gap: 1.5rem;
+    border: 0.2rem solid #0649dc;
+    width: 40vh;
+    height: 30vh;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 2rem;
 }
 
-
-
-
-
-
-
-
-
-@media (max-width: 1024px) {
-
+.before_middle_item h2 {
+    font-size: 1.5rem;
 }
 
-@media (max-width: 975px) {
-
-}
-
-@media (max-width: 775px) {
-
-}
-
-@media (max-width: 875px) {
-
-}
-
-
-@media (max-width: 675px) {
-     #menu_burger {
-          display: flex;
-     }
-
-     header nav .af {
-          display: none;
-     }
-
-     header {
-          width: 100vw;
-     }
-
-     .active {
-          display: flex;
-          transition: all 2s ease;
-     }
-
-     .toggle {
-          transform: translateX(-100vw);
-          background-color: rgba(255, 255, 2555, 0.5);
-     }
-
-     .middle {
-          display: flex;
-          flex-direction: column;
-          width: 100vw;
-     }
-
-     .types_cars {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-     }
-     
-     .types_cars .galery {
-          display: flex;
-          flex-direction: column;
-          gap: rem;
-     }
-
-     .types_cars .galery_item a {
-          position: relative;
-          bottom: 1rem;
-     }
-
-     .types_cars .galery_item img {
-          position: relative;
-          left: 12rem;
-     }
-}
+/*<section class="before_middle">
+               <h1>WE CAN DO WHAT <br> OTHER'S CAN'T DO!</h1>
+               <div class="before_middle_items">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime porro blanditiis sequi ut distinctio, necessitatibus, architecto explicabo odio dolore quod illum cum recusandae temporibus praesentium ducimus consequatur! Ipsam, possimus sed!</p>
+                    <div class="before_middle_item">
+                         <h2>COLOR HIT 100%</h2>
+                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime sit perspiciatis consequuntur similique tempore</p>
+                    </div>
+                    <div class="before_middle_item">
+                         <h2>CLUB SERVICES N°1</h2>
+                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime sit perspiciatis consequuntur similique tempore</p>
+                    </div>
+                    <div></div>
+                    <div class="before_middle_item">
+                         <h2>EXACTLY ACCORDING TO YOUR BUJECT</h2>
+                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime sit perspiciatis consequuntur similique tempore</p>
+                    </div>
+                    <div class="before_middle_item flex_column">
+                         <h2>FRIENDS WON'T SEE THE DIFFERENCE </h2>
+                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime sit perspiciatis consequuntur similique tempore</p>
+                    </div>
+               </div>
+               <div class="after_footer flex_center flex_column">
+                    <h1>STAND OUT FROM THE CROWD WITH MAX COLOR </h1>
+                    <p>Leave a request for painting your car and my gcuhb cizbzf jisiiz iuzf</p>
+                    <img src="trois.png" alt="">
+               </div>
+          </section>
+*/
